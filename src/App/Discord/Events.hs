@@ -31,15 +31,15 @@ onMsg ∷ Message → App ()
 onMsg msg = do
   env ← ask
   let hasSecretWord = env.cfg.secretWord `Text.isInfixOf` Text.toLower msg.messageContent
-      uid = msg.messageAuthor & userId
-      uidText = uid & unId & unSnowflake & show
+      uid = userId msg.messageAuthor
+      uidText = show . unSnowflake $ unId uid
   case (hasSecretWord, msg.messageChannelId ≡ welcomeCh env) of
     (True, True) → do
       void . lift . restCall $ R.DeleteMessage (welcomeCh env, msg.messageId)
       void . lift . restCall
-        $ R.AddGuildMemberRole (gId env) (msg.messageAuthor & userId) (memberRole env)
+        $ R.AddGuildMemberRole (gId env) (userId msg.messageAuthor) (memberRole env)
       msgsPendingDeletion ← readMVar env.pendingDeletion
-      case Map.lookup (msg.messageAuthor & userId) msgsPendingDeletion of
+      case Map.lookup (userId msg.messageAuthor) msgsPendingDeletion of
         Nothing → pass
         Just msgIdToDelete → do
           void . lift . restCall $ R.DeleteMessage (welcomeCh env, msgIdToDelete)
