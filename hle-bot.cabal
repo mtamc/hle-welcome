@@ -1,0 +1,130 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           hle-bot
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/tam-carre/ado-discord-bot#readme>
+homepage:       https://github.com/tam-carre/hle-bot#readme
+bug-reports:    https://github.com/tam-carre/hle-bot/issues
+author:         Tam CARRE
+maintainer:     Tam CARRE
+copyright:      2022 Tam CARRE
+license:        BSD3
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/tam-carre/hle-bot
+
+library
+  exposed-modules:
+      App
+      App.Discord.Events
+      App.Discord.Lenses
+      Main
+      Prelude
+  other-modules:
+      Paths_hle_bot
+  hs-source-dirs:
+      src
+  default-extensions:
+      OverloadedStrings
+      OverloadedLabels
+      UnicodeSyntax
+      NoFieldSelectors
+      LambdaCase
+      DuplicateRecordFields
+      ViewPatterns
+      BlockArguments
+      DataKinds
+      TypeOperators
+      TypeFamilies
+      OverloadedRecordDot
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base-noprelude
+    , base-unicode-symbols
+    , containers
+    , data-default
+    , dhall
+    , discord-haskell
+    , emoji
+    , generic-lens
+    , hspec
+    , hspec-contrib
+    , http-client
+    , http-client-tls
+    , lens
+    , mtl
+    , opaleye
+    , openai-hs
+    , postgresql-simple
+    , product-profunctors
+    , relude
+    , safe-exceptions
+    , servant >=0.19.1
+    , template-haskell
+    , text
+    , time
+    , unliftio
+    , vector
+  default-language: GHC2021
+
+executable hle-bot-exe
+  main-is: Main.hs
+  other-modules:
+      App
+      App.Discord.Events
+      App.Discord.Lenses
+      Prelude
+      Paths_hle_bot
+  hs-source-dirs:
+      src
+  default-extensions:
+      OverloadedStrings
+      OverloadedLabels
+      UnicodeSyntax
+      NoFieldSelectors
+      LambdaCase
+      DuplicateRecordFields
+      ViewPatterns
+      BlockArguments
+      DataKinds
+      TypeOperators
+      TypeFamilies
+      OverloadedRecordDot
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -fwrite-ide-info -hiedir=.hie
+  build-depends:
+      base-noprelude
+    , base-unicode-symbols
+    , containers
+    , data-default
+    , dhall
+    , discord-haskell
+    , emoji
+    , generic-lens
+    , hle-bot
+    , hspec
+    , hspec-contrib
+    , http-client
+    , http-client-tls
+    , lens
+    , mtl
+    , opaleye
+    , openai-hs
+    , postgresql-simple
+    , product-profunctors
+    , relude
+    , safe-exceptions
+    , servant >=0.19.1
+    , template-haskell
+    , text
+    , time
+    , unliftio
+    , vector
+  default-language: GHC2021

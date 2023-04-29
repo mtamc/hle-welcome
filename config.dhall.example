@@ -1,0 +1,9 @@
+{ discordBotToken = "token here"
+, welcomeChannelId = 885724608660136016
+, guildId = 885707848909226034
+, memberRoleId = 885757735558348800
+, secretWord = "nyahello"
+, welcomeMsg = "Please read <#885756488495284236> carefully and type the \"secret word\" (you can find it in <#885756488495284236>) here to access the server!\n\n<#885756488495284236>をよく読み、「秘密の呪文」（ <#885756488495284236> の中にあります）をここに入力すると、サーバにアクセスできるようになります。"
+, confirmationMsg = "You now have access to the main channels. Select language roles in <#885728420401676348> to get access to language-specific channels!\nメインチャンネルにアクセスできるようになりました。次に、あなたの興味のある言語のチャンネルへアクセスするために、 <#885728420401676348>でその言語のロールを取得してください。"
+}
+
