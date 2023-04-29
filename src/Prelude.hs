@@ -9,14 +9,9 @@ module Prelude
   , module Data.Monoid.Unicode
   , module Data.Ord.Unicode
   , module Relude
-  , applyWhen
   , echo
-  , justIf
   , makeFieldsOptionalPrefix
-  , onFail
-  , positJust
   , until
-  , (≪)
   ) where
 
 import Control.Arrow.Unicode
@@ -41,22 +36,6 @@ import Relude                 hiding (id)
 echo ∷ MonadIO m ⇒ Text → m ()
 echo = putTextLn
 
-applyWhen ∷ Bool → (a → a) → a → a
-applyWhen cond f a = if cond then f a else a
-
-justIf ∷ Bool → a → Maybe a
-justIf cond a = if cond then Just a else Nothing
-
-positJust ∷ MonadError e m ⇒ e → Maybe a → m a
-positJust _err (Just a) = pure a
-positJust err  Nothing  = throwError err
-
-(≪) ∷ Monad m ⇒ m a → m b → m a
-(≪) = flip (≫)
-
-onFail ∷ l → Maybe r → Either l r
-onFail = maybeToRight
-
 makeFieldsOptionalPrefix ∷ String → Name → DecsQ
 makeFieldsOptionalPrefix pf = makeLensesWith $ lensRules & lensField   .~ namer
                                                          & createClass .~ True
@@ -71,5 +50,5 @@ makeFieldsOptionalPrefix pf = makeLensesWith $ lensRules & lensField   .~ namer
     where
     computeMethod (x:xs) = Just (toLower x : xs)
     computeMethod _      = Nothing
-    computeCls (x:xs) = Just $ "Has" ++ (toUpper x : xs)
+    computeCls (x:xs) = Just $ "Has" ⧺ (toUpper x : xs)
     computeCls _      = Nothing
