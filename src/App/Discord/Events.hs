@@ -15,7 +15,6 @@ onDiscordEvent = \case
   MessageCreate msg             → onMsg msg
   _                             → pass
 
-
 onUserJoin ∷ GuildId → GuildMember → App ()
 onUserJoin guildId member = do
   env ← ask
