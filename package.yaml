@@ -1,6 +1,6 @@
 name:                hle-bot
 version:             0.1.0.0
-github:              "tam-carre/hle-bot"
+github:              "mtamc/hle-welcome"
 license:             BSD3
 author:              "Tam CARRE"
 maintainer:          "Tam CARRE"
@@ -9,7 +9,7 @@ copyright:           "2022 Tam CARRE"
 extra-source-files:
 - README.md
 
-description:         Please see the README on GitHub at <https://github.com/tam-carre/ado-discord-bot#readme>
+description:         Please see the README on GitHub at <https://github.com/mtamc/hle-welcome#readme>
 
 dependencies:
 - base-noprelude
